@@ -1,13 +1,317 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+  color: #2b2b2b;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  background-color: #f5f5f5;
+}
+header {
+  position: relative;
+}
+button {
+  cursor: pointer;
+}
+header .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 40px;
+}
+header .logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header ul.menu {
+  list-style: none;
+}
+header ul.menu li {
+  text-align: end;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: opasity 500ms ease;
+  font-size: 12px;
+}
+header ul.menu li:hover {
+  opacity: 0.5;
+}
+.cart_icon {
+  margin-left: 20px;
+  transition: color, transform 300ms ease;
+}
+
+.cart_icon.active {
+  color: #389b3d;
+  transform: scale(1.2);
+}
+header .slow {
+  opacity: 0;
+  transition: 300ms;
+}
+header .shop-cart {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 300px;
+  background-color: #fffefe;
+  -webkit-box-shadow: 6px 10px 44px -8px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 6px 10px 44px -8px rgba(0, 0, 0, 0.19);
+  box-shadow: 6px 10px 44px -8px rgba(0, 0, 0, 0.19);
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+}
+
+header .shop-cart .item {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+header .shop-cart #itemsSet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+header .items_sum {
+  color: white;
+  height: 15px;
+  width: 15px;
+  background-color: #227b27;
+  font-size: 9px;
+  border-radius: 50%;
+  border: #eeeeee solid 1px;
+  line-height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -10px;
+  right: 5px;
+}
+header .shop-cart h2 {
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+header .shop-cart .item img {
+  height: 100%;
+  object-fit: cover;
+  float: left;
+  padding-bottom: 20px;
+}
+header .shop-cart .item_img {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+header .order_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+header .item_price {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  padding: 10px;
+}
+.item_price {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+}
+header .shop-cart .item .counterCart {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+  margin-bottom: 40px;
+}
+header .shop-cart .item .counterCart .btn_count_cart {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 20px 10px 0 10px;
+  font-weight: 600px;
+}
+.btn_counter {
+  background-color: #44a347;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  color: #eeeeee;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.empty {
+  margin-bottom: 10px;
+}
+header .shop-cart .item .delete_icon {
+  color: #227b27;
+  position: absolute;
+  left: 190px;
+  bottom: 15px;
+  cursor: pointer;
+  transition: color, transform 300ms ease;
+}
+header .shop-cart .item .delete_icon:hover {
+  color: #48b24d;
+  transform: scale(1.5);
+}
+header .cartSum {
+  display: flex;
+  width: 100%;
+  margin: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .banner {
+  background: url("./img/banner.png") no-repeat;
+  height: 140px;
+  background-size: 100% 100%;
+  background-position: center;
+}
+header .offers {
+  height: 40px;
+  background-color: #040404;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  line-height: 40px;
+}
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 40px;
+}
+
+main .item {
+  width: 80%;
+  margin-bottom: 50px;
+  background-color: #eeeeee;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+}
+main .item img {
+  width: 100%;
+  padding: 20px 20px;
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  transition: transform 100ms ease;
+}
+main .item img:hover {
+  transform: scale(1.05);
+}
+
+.item h2,
+p {
+  padding: 10px;
+  margin: 0 20px;
+  color: #363535;
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+
+b {
+  color: #48b24d;
+  font-size: 20px;
+}
+.item h2 {
+  padding-top: 20px;
+}
+header .cartMenu {
+  display: flex;
+  width: 100%;
+  margin: 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+header .cartMenu button {
+  height: 40px;
+  width: 100px;
+  background-color: #48b24d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+.add_to_cart {
+  background-color: #48b24d;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  color: #eeeeee;
+  font-weight: 700;
+  font-size: 20px;
+  transition: transform 300ms ease;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+.add_to_cart:hover {
+  transform: scale(1.5) translateY(-5px);
+  background-color: #227b27;
+}
+
+footer {
+  text-align: center;
+  margin: 5px 0;
+}
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  header ul.menu li {
+    display: inline;
+    font-size: 14px;
+  }
+  header .banner {
+    height: 220px;
+  }
+  main {
+    padding: 40px 0px;
+  }
+  main .item {
+    width: 40%;
+    margin: 0 20px 50px 20px;
+  }
+}
+@media only screen and (min-width: 961px) {
+  header ul.menu li {
+    display: inline;
+    font-size: 14px;
+  }
+  header .banner {
+    height: 250px;
+  }
+
+  main {
+    padding: 40px 0px;
+  }
+  main .item {
+    width: 20%;
+    margin: 0 20px 50px 20px;
+  }
 }
