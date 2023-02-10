@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Items from "./components/Items";
+import ShowItem from "./components/ShowItem";
 
 function App() {
   const [items, setItems] = useState([]);
   const [order, setOrder] = useState([]);
+  const [showItem, setShowItem] = useState(false);
+  const [itemCart, setItemCart] = useState({});
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=12")
@@ -56,6 +59,13 @@ function App() {
     );
   }
 
+  function onShowItem(item) {
+    setShowItem(!showItem);
+    setItemCart(item);
+  }
+  function onHideItem() {
+    setShowItem(!showItem);
+  }
   return (
     <div className="wrapper">
       <Header
@@ -64,7 +74,15 @@ function App() {
         onAddCountCart={addCountCart}
         onDeleteCountCart={deleteCountCart}
       />
-      <Items items={items} onUpdateData={updateData} />
+      <Items items={items} onUpdateData={updateData} onShowItem={onShowItem} />
+      {showItem && (
+        <ShowItem
+          item={itemCart}
+          onUpdateData={updateData}
+          onShowItem={onShowItem}
+          onHideItem={onHideItem}
+        />
+      )}
       <Footer />
     </div>
   );
