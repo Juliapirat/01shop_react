@@ -1,6 +1,5 @@
 import Item from "./Item";
 import uuid from "react-uuid";
-import ShowItem from "./ShowItem";
 
 export default function Items(props) {
   return (
